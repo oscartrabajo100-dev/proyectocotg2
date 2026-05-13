@@ -37,6 +37,7 @@ const CATALOGO_UNIFICADO = [
   { cat: "Civil", desc:"Relleno compactado con material", unidad:"m³", pu:28000 },
   { cat: "Civil", desc:"Mampostería bloque #4", unidad:"m²", pu:65000 },
   { cat: "Civil", desc:"Suministro e inst. puerta metálica", unidad:"und", pu:320000 },
+  
   // Metal
   { cat: "Metal", desc:"Desmonte tubería existente", unidad:"ml", pu:22000 },
   { cat: "Metal", desc:"Corte y preparación de perfiles", unidad:"kg", pu:4500 },
@@ -44,13 +45,45 @@ const CATALOGO_UNIFICADO = [
   { cat: "Metal", desc:"Pintura anticorrosiva epóxica", unidad:"m²", pu:18000 },
   { cat: "Metal", desc:"Montaje estructura metálica", unidad:"kg", pu:5800 },
   { cat: "Metal", desc:"Fabricación de soporte tubería", unidad:"und", pu:85000 },
-  // Tubería (Acero Carbono e Inoxidable)
+  
+  // Tubería Acero Carbón (SMAW o Electrodo)
   { cat: "Tubería", desc:"Tubería Acero Carbón SMAW 0.250", unidad:"ml", pu:12015 },
+  { cat: "Tubería", desc:"Tubería Acero Carbón SMAW 0.375", unidad:"ml", pu:12015 },
+  { cat: "Tubería", desc:"Tubería Acero Carbón SMAW 0.500", unidad:"ml", pu:12015 },
+  { cat: "Tubería", desc:"Tubería Acero Carbón SMAW 0.750", unidad:"ml", pu:12015 },
+  { cat: "Tubería", desc:"Tubería Acero Carbón SMAW 1.000", unidad:"ml", pu:14454 },
+  { cat: "Tubería", desc:"Tubería Acero Carbón SMAW 1.250", unidad:"ml", pu:17744 },
+  { cat: "Tubería", desc:"Tubería Acero Carbón SMAW 1.500", unidad:"ml", pu:21705 },
   { cat: "Tubería", desc:"Tubería Acero Carbón SMAW 2.000", unidad:"ml", pu:28877 },
-  { cat: "Tubería", desc:"Tubería Acero Carbón SMAW 4\"", unidad:"ml", pu:57524 },
+  { cat: "Tubería", desc:"Tubería Acero Carbón SMAW 2.500", unidad:"ml", pu:36072 },
+  { cat: "Tubería", desc:'Tubería Acero Carbón SMAW 3"', unidad:"ml", pu:43314 },
+  { cat: "Tubería", desc:'Tubería Acero Carbón SMAW 4"', unidad:"ml", pu:57524 },
+  { cat: "Tubería", desc:'Tubería Acero Carbón SMAW 6"', unidad:"ml", pu:81211 },
+  { cat: "Tubería", desc:'Tubería Acero Carbón SMAW 8"', unidad:"ml", pu:99108 },
+  { cat: "Tubería", desc:'Tubería Acero Carbón SMAW 10"', unidad:"ml", pu:129920 },
+  { cat: "Tubería", desc:'Tubería Acero Carbón SMAW 12"', unidad:"ml", pu:168896 },
+  { cat: "Tubería", desc:'Tubería Acero Carbón SMAW 14"', unidad:"ml", pu:175393 },
+  { cat: "Tubería", desc:'Tubería Acero Carbón SMAW 16"', unidad:"ml", pu:225210 },
+
+  // Tubería Acero Inoxidable (GTAW o TIG)
   { cat: "Tubería", desc:"Tubería Acero Inox GTAW 0.250", unidad:"ml", pu:13437 },
+  { cat: "Tubería", desc:"Tubería Acero Inox GTAW 0.375", unidad:"ml", pu:13437 },
+  { cat: "Tubería", desc:"Tubería Acero Inox GTAW 0.500", unidad:"ml", pu:13437 },
+  { cat: "Tubería", desc:"Tubería Acero Inox GTAW 0.750", unidad:"ml", pu:15757 },
+  { cat: "Tubería", desc:"Tubería Acero Inox GTAW 1.000", unidad:"ml", pu:17444 },
+  { cat: "Tubería", desc:"Tubería Acero Inox GTAW 1.250", unidad:"ml", pu:20808 },
+  { cat: "Tubería", desc:"Tubería Acero Inox GTAW 1.500", unidad:"ml", pu:25917 },
   { cat: "Tubería", desc:"Tubería Acero Inox GTAW 2.000", unidad:"ml", pu:34588 },
-  { cat: "Tubería", desc:"Tubería Acero Inox GTAW 4\"", unidad:"ml", pu:63764 },
+  { cat: "Tubería", desc:"Tubería Acero Inox GTAW 2.500", unidad:"ml", pu:43097 },
+  { cat: "Tubería", desc:'Tubería Acero Inox GTAW 3"', unidad:"ml", pu:51853 },
+  { cat: "Tubería", desc:'Tubería Acero Inox GTAW 4"', unidad:"ml", pu:63764 },
+  { cat: "Tubería", desc:'Tubería Acero Inox GTAW 6"', unidad:"ml", pu:86203 },
+  { cat: "Tubería", desc:'Tubería Acero Inox GTAW 8"', unidad:"ml", pu:105011 },
+  { cat: "Tubería", desc:'Tubería Acero Inox GTAW 10"', unidad:"ml", pu:157909 },
+  { cat: "Tubería", desc:'Tubería Acero Inox GTAW 12"', unidad:"ml", pu:205281 },
+  { cat: "Tubería", desc:'Tubería Acero Inox GTAW 14"', unidad:"ml", pu:213174 },
+  { cat: "Tubería", desc:'Tubería Acero Inox GTAW 16"', unidad:"ml", pu:306052 },
+
   // Extras
   { cat: "Civil", desc: "Localización y replanteos.", unidad: "m²", pu: 0 },
   { cat: "Civil", desc: "Descapote a máquina y retiro de escombros.", unidad: "m³", pu: 0 },
@@ -80,7 +113,7 @@ const CATALOGO = {
 const ITEMS_INICIAL = {
   civil:[{id:1,desc:"Excavación manual de zanjas",unidad:"m³",cantidad:25,pu:45000,nivel:"item"}],
   metal:[{id:1,desc:"Montaje de estructura metálica",unidad:"kg",cantidad:500,pu:5800,nivel:"item"}],
-  tuberia:[{id:1,desc:"Tubería Acero Carbón SMAW 4\"",unidad:"ml",cantidad:10,pu:57524,nivel:"item"}],
+  tuberia:[{id:1,desc:'Tubería Acero Carbón SMAW 4"',unidad:"ml",cantidad:10,pu:57524,nivel:"item"}],
 };
 
 function numerarItems(items) {
@@ -405,7 +438,7 @@ function HistorialPanel({historial,onCargar,onEliminar,onNuevo,onDuplicar,accent
 // ══════════════════════════════════════════════════════════════════════════
 // EDITOR DE COTIZACIÓN
 // ══════════════════════════════════════════════════════════════════════════
-function Editor({estado,setEstado,onGuardar,onPDF,onXLSX, actividadesBd, onGuardarActividad}) {
+function Editor({estado,setEstado,onGuardar,onPDF,onXLSX, actividadesBd, onGuardarActividad, onEliminarActividad}) {
   const {cat,empresaCli,respCli,areaCli,sede,numCot,asunto,objeto,
     formaPago,validez,observaciones,items,manoObra,equipos,aiu,iva}=estado;
   const set=useCallback((field,val)=>setEstado(p=>({...p,[field]:val})),[setEstado]);
@@ -606,7 +639,18 @@ function Editor({estado,setEstado,onGuardar,onPDF,onXLSX, actividadesBd, onGuard
                                 <div style={{fontSize:12,color:T.text,fontFamily:T.mono}}>{item.desc}</div>
                                 <div style={{fontSize:10,color:T.textDim,marginTop:2}}>{item.unidad} · Ref $ {fmt(item.pu)}</div>
                               </div>
-                              <span style={{background:P.accent,color:"#fff",fontSize:10,fontFamily:T.mono,fontWeight:600,padding:"3px 8px",borderRadius:2,marginLeft:12}}>+ ADD</span>
+                              <div style={{display: "flex", gap: "6px", alignItems:"center"}}>
+                                {item.id && (
+                                  <span onClick={(e) => {
+                                      e.stopPropagation();
+                                      onEliminarActividad(item.id);
+                                    }}
+                                    style={{background:"#e63946",color:"#fff",fontSize:10,fontFamily:T.mono,fontWeight:600,padding:"3px 8px",borderRadius:2,marginLeft:6}}>
+                                    🗑 ELIMINAR
+                                  </span>
+                                )}
+                                <span style={{background:P.accent,color:"#fff",fontSize:10,fontFamily:T.mono,fontWeight:600,padding:"3px 8px",borderRadius:2,marginLeft:6}}>+ ADD</span>
+                              </div>
                             </div>
                         ))}
                         
@@ -994,6 +1038,18 @@ export default function G2App() {
     }
   };
 
+  // ── ELIMINAR ACTIVIDAD DEL CATÁLOGO ──
+  const handleEliminarActividad = async (id) => {
+    if (!window.confirm("¿Seguro que deseas eliminar esta actividad de tu catálogo en la nube?")) return;
+    try {
+      await deleteDoc(doc(db, "actividades", id));
+      setActividadesBd(prev => prev.filter(a => a.id !== id));
+    } catch (error) {
+      console.error("Error eliminando actividad: ", error);
+      alert("Error al intentar eliminar la actividad.");
+    }
+  };
+
   // ── GUARDAR NUEVA ACTIVIDAD EN EL CATÁLOGO (FIREBASE) ──
   const handleGuardarActividad = async (actividad) => {
     if (!actividad.desc || actividad.desc.trim() === "") {
@@ -1197,6 +1253,7 @@ export default function G2App() {
               onXLSX={handleXLSX}
               actividadesBd={actividadesBd}
               onGuardarActividad={handleGuardarActividad}
+              onEliminarActividad={handleEliminarActividad}
             />
           </div>
         )}
